@@ -1,0 +1,70 @@
+﻿<Window x:Class="Payment.Views.GeneratePaymentView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Payment.Views"
+        mc:Ignorable="d"
+        xmlns:uc="clr-namespace:Payment.Views"
+        Background="#F5F5F5"
+        Height="600" Width="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="63"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="10 10 0 0">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Criar Pagamento" FontSize="18" FontWeight="Bold" Foreground="#272727"/>
+                <Label Content="Informe o número do pedido e o valor a ser pago" FontSize="12" FontWeight="Medium" Foreground="#787878"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Vertical">
+                <Border Width="160" Height="154" Background="#FFFFFF" CornerRadius="7">
+                    <Image Width="132" Height="132" ToolTip="image123"  Source="pack://application:,,,/Payment;component/Image/Rectangle49.png"/>
+                </Border>
+                <TextBox Width="277" Height="48" Margin="0 20 0 0" VerticalContentAlignment="Center" FontSize="16" FontFamily="Montserrat"
+                     Text="{Binding Address,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="#323232">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="8"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <TextBox Width="277" Height="48" Margin="0 20 0 0" VerticalContentAlignment="Center" FontSize="16" FontFamily="Montserrat"
+                     Text="{Binding Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="#323232">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="8"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <Button Content="Gerar" Width="277" Height="48" Background="#FFC501" FontSize="13.74" FontWeight="Bold" Margin="0 20 0 0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="6.87"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Image Width="119" Height="20" ToolTip="image123"  Source="pack://application:,,,/Payment;component/Image/Group1200.png" Margin="0 20 0 0"/>
+            </StackPanel>
+        </Grid>
+        <Border Grid.Row="2" Background="#FFFFFF" CornerRadius="12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Width="36" Height="36" ToolTip="image123"  Source="pack://application:,,,/Payment;component/Image/bxs_dollar-circle-black.png"/>
+                <Image Grid.Column="1" Width="36" Height="36" ToolTip="image123"  Source="pack://application:,,,/Payment;component/Image/ph_qr-code-fill-color.png"/>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="20 0 0 0">
+                    <Image Margin="20 0 0 0" Width="20" Height="28" ToolTip="image123" Source="pack://application:,,,/Payment;component/Image/btn-next/Vector.png"/>
+                    <Image Margin="0 10 0 0" Width="9" Height="12" ToolTip="image123" Source="pack://application:,,,/Payment;component/Image/btn-next/Vector-1.png"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
