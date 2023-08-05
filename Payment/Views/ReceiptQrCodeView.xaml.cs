@@ -17,7 +17,7 @@ namespace Payment.Views
     /// <summary>
     /// Interaction logic for ReceiptQrCodeView.xaml
     /// </summary>
-    public partial class ReceiptQrCodeView : Window
+    public partial class ReceiptQrCodeView : UserControl
     {
         public ReceiptQrCodeView()
         {

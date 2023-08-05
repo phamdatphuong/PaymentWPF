@@ -37,6 +37,8 @@
     <None Remove="Image\Rectangle49.png" />
     <None Remove="Image\RemoveOrder\ci_close-small.png" />
     <None Remove="Image\RemoveOrder\Rectangle 57.png" />
+    <None Remove="Image\Vector.png" />
+    <None Remove="Image\wpf_qr-code 1.png" />
     <None Remove="Image\wpf_qr-code.png" />
   </ItemGroup>
 
@@ -126,6 +128,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Image\RemoveOrder\Rectangle 57.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\Vector.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\wpf_qr-code 1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Image\wpf_qr-code.png">
