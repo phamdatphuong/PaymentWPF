@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="Payment.Views.OrderStatusView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Payment.Views"
+        mc:Ignorable="d"
+        xmlns:uc="clr-namespace:Payment.Views"
+        Background="#f0f0f0"
+        Height="600" Width="350">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="VisibleIfTrueConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="63"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="10 10 0 0">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Pagamentos" FontSize="18" FontWeight="Bold" Foreground="#272727"/>
+                <Label Content="Pagamentos gerados" FontSize="12" FontWeight="Medium" Foreground="#787878"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Vertical">
+                <Image Width="119" Height="20" ToolTip="image123" Source="pack://application:,,,/Payment;component/Image/Group1200.png"/>
+                <Grid Height="35">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Data" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <Label Grid.Column="1" Content="21.03.22 - 28.03.22" FontSize="14" FontWeight="Regular" HorizontalAlignment="Center"/>
+                    <Image Grid.Column="2" Height="32" Width="32" Source="pack://application:,,,/Payment;component/Image/bxs_file-export.png"
+                           MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+                </Grid>
+                <ListView x:Name="DataOrderItems" ItemsSource="{Binding OrderList}" Background="#f0f0f0" MaxHeight="380"
+                          SelectedItem="{Binding SelectedParameter}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border HorizontalAlignment="Center" Width="320" Height="60" CornerRadius="6">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="20"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image VerticalAlignment="Center" Width="20" Height="20" Source="{Binding BitmapImage, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                    <Grid Grid.Column="1">
+                                        <StackPanel Orientation="Vertical">
+                                            <Label Content="{Binding Path=OrderNumber, StringFormat=Pedido #{0}}" FontSize="16" FontWeight="Bold"/>
+                                            <Label Content="{Binding OrderTime}" FontSize="14" FontWeight="Regular"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Label Grid.Column="2" Content="{Binding Money, StringFormat=R$: {0}}" FontSize="16" FontWeight="Bold" Foreground="#02B966" HorizontalAlignment="Center"/>
+                                    <Image Grid.Column="3" Margin="0 0 -40 0" VerticalAlignment="Center" Width="15" Height="15" Source="pack://application:,,,/Payment;component/Image/image 3.png"
+                                           Visibility="{Binding ShowCancelIcon,Converter={StaticResource VisibleIfTrueConverter}}"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <Border Grid.Row="2" Background="#FFFFFF" CornerRadius="12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="36" Height="36" Source="pack://application:,,,/Payment;component/Image/bxs_dollar-circle.png"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Grid.Column="1" Command="{Binding ShowQrCodeCommand}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="36" Height="36" Source="pack://application:,,,/Payment;component/Image/ph_qr-code-fill.png"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Grid.Column="2">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="36" Height="36" Source="pack://application:,,,/Payment;component/Image/Group 18094.png"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

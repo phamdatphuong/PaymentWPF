@@ -6,14 +6,20 @@
              xmlns:views="clr-namespace:Payment.Views"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <!--<DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
-            <views:HomeView/>
-        </DataTemplate>-->
         <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
             <views:LoginView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:GeneratePaymentViewModel}">
             <views:GeneratePaymentView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:OrderStatusViewModel}">
+            <views:OrderStatusView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:QrCodeViewModel}">
+            <views:QrCodeView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:PaidOrderViewModel}">
+            <views:PaidOrderView/>
         </DataTemplate>
     </Application.Resources>
 </Application>

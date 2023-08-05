@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 namespace Payment.Views
 {
     /// <summary>
-    /// Interaction logic for GeneratePaymentView.xaml
+    /// Interaction logic for PopupSelectTimeView.xaml
     /// </summary>
-    public partial class GeneratePaymentView : UserControl
+    public partial class PopupSelectTimeView : BaseUserControl
     {
-        public GeneratePaymentView()
+        public PopupSelectTimeView()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.CloseWindow();
         }
     }
 }

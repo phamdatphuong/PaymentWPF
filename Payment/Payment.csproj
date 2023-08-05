@@ -8,11 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Image\bi_check-lg.png" />
     <None Remove="Image\btn-next\Vector-1.png" />
     <None Remove="Image\btn-next\Vector.png" />
     <None Remove="Image\bxs_dollar-circle-black.png" />
     <None Remove="Image\bxs_dollar-circle.png" />
+    <None Remove="Image\bxs_file-export.png" />
     <None Remove="Image\bx_time-five.png" />
+    <None Remove="Image\ci_close-small.png" />
     <None Remove="Image\Group 18094.png" />
     <None Remove="Image\Group 18095.png" />
     <None Remove="Image\Group 18096 %281%29.png" />
@@ -38,6 +41,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Image\bi_check-lg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Image\btn-next\Vector-1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -50,7 +56,13 @@
     <Content Include="Image\bxs_dollar-circle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Image\bxs_file-export.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Image\bx_time-five.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\ci_close-small.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Image\Group 18094.png">
@@ -119,6 +131,10 @@
     <Content Include="Image\wpf_qr-code.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
   </ItemGroup>
 
 </Project>

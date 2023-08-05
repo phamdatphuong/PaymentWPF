@@ -11,7 +11,7 @@ namespace Payment.ViewModels
     public class LoginViewModel : BaseViewModel
     {
         public LoginViewModel() { }
-        public MainViewModel mainViewModel{get; set;}
+        public MainViewModel mainViewModel;
 
         public LoginViewModel(MainViewModel mainViewModel)
         {

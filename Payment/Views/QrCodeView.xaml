@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="Payment.Views.QrCodeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Payment.Views"
+        mc:Ignorable="d"
+        Background="#f0f0f0"
+        Height="600" Width="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="63"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="10 10 0 0">
+            <StackPanel Orientation="Vertical">
+                <Label Content="QR Code" FontSize="18" FontWeight="Bold" Foreground="#272727"/>
+                <Label Content="Pedido #1234567 Envie os dados de pagamento ao comprador" FontSize="12" FontWeight="Medium" Foreground="#787878"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Vertical">
+                <Label Content="R$39,20" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <Border Width="160" Height="160" Background="#FFFFFF" CornerRadius="7">
+                    <Image Width="130" Height="130" ToolTip="image123"  Source="pack://application:,,,/Payment;component/Image/wpf_qr-code.png"/>
+                </Border>
+                <Label Content="PIX Copia e Cola" FontSize="16" FontWeight="Bold" Foreground="#EBB604"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Width="307" Height="39" Margin="10 0 0 0" VerticalContentAlignment="Center" FontSize="16" FontFamily="Montserrat" Text="00020126920014BR.GOV.BCB.PIX01" Foreground="#323232">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="8"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <Image Width="23" Height="23" Margin="5 0 0 0" Source="pack://application:,,,/Payment;component/Image/image 2.png"/>
+                </StackPanel>
+                <Label Content="Para realizar o pagamento utilize a opção  PIX Copia e Cola no aplicativo do seu banco." FontSize="12" FontWeight="Medium" HorizontalAlignment="Center" Foreground="#787878"/>
+                <Button Content="Imprimir" Width="277" Height="48" Background="#FFC501" FontSize="13.74" FontWeight="Bold" Margin="0 20 0 0"
+                        Command="{Binding DetailOrderCommand}">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="6.87"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Image Width="119" Height="20" ToolTip="image123"  Source="pack://application:,,,/Payment;component/Image/Group1200.png" Margin="0 20 0 0"/>
+            </StackPanel>
+        </Grid>
+        <Border Grid.Row="2" Background="#FFFFFF" CornerRadius="12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Width="36" Height="36" Source="pack://application:,,,/Payment;component/Image/bxs_dollar-circle-black.png"/>
+                <Image Grid.Column="1" Width="36" Height="36" Source="pack://application:,,,/Payment;component/Image/ph_qr-code-fill-color.png"/>
+                <Image Grid.Column="2" Width="38" Height="36" Source="pack://application:,,,/Payment;component/Image/Group18094-1.png"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

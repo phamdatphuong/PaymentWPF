@@ -1,19 +1,15 @@
-﻿using Microsoft.VisualBasic;
-using Payment.Models;
+﻿using Payment.Models;
 using Payment.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
 namespace Payment.Commands
 {
-    public class LoginCommand:ICommand
+    public class LoginCommand : ICommand
     {
         LoginViewModel _viewModel;
         public LoginCommand(LoginViewModel viewModel)

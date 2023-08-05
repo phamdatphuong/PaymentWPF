@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 namespace Payment.Views
 {
     /// <summary>
-    /// Interaction logic for GeneratePaymentView.xaml
+    /// Interaction logic for OrderStatusView.xaml
     /// </summary>
-    public partial class GeneratePaymentView : UserControl
+    public partial class OrderStatusView : UserControl
     {
-        public GeneratePaymentView()
+        public OrderStatusView()
         {
             InitializeComponent();
+        }
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //show popup PopupSelectTimeView.xaml
         }
     }
 }

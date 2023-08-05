@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Payment.Views
 {
     /// <summary>
-    /// Interaction logic for GeneratePaymentView.xaml
+    /// Interaction logic for ReceiptQrCodeView.xaml
     /// </summary>
-    public partial class GeneratePaymentView : UserControl
+    public partial class ReceiptQrCodeView : Window
     {
-        public GeneratePaymentView()
+        public ReceiptQrCodeView()
         {
             InitializeComponent();
         }

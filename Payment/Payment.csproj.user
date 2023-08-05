@@ -13,6 +13,21 @@
     <Compile Update="Views\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\OrderStatusView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PaidOrderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PopupSelectTimeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\QrCodeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ReceiptQrCodeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -22,6 +37,21 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\OrderStatusView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PaidOrderView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PopupSelectTimeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\QrCodeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ReceiptQrCodeView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

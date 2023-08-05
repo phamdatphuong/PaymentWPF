@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Payment.Views
 {
     /// <summary>
-    /// Interaction logic for GeneratePaymentView.xaml
+    /// Interaction logic for PaidOrderView.xaml
     /// </summary>
-    public partial class GeneratePaymentView : UserControl
+    public partial class PaidOrderView : UserControl
     {
-        public GeneratePaymentView()
+        public PaidOrderView()
         {
             InitializeComponent();
         }
