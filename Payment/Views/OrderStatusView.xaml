@@ -56,7 +56,7 @@
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="20"/>
                                                     <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="60"/>
+                                                    <ColumnDefinition Width="100"/>
                                                     <ColumnDefinition Width="20"/>
                                                 </Grid.ColumnDefinitions>
                                                 <Image VerticalAlignment="Center" Width="20" Height="20" Source="{Binding BitmapImage, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
@@ -68,8 +68,21 @@
                                                 </Grid>
                                                 <Label Grid.Column="2" Content="{Binding Money}" FontSize="16" 
                                                        FontFamily="Lato" FontWeight="Bold" Foreground="#02B966" HorizontalAlignment="Center"/>
-                                                <Image Grid.Column="3" Margin="0 0 -30 0" VerticalAlignment="Center" Width="15" Height="15" Source="pack://application:,,,/Payment;component/Image/image 3.png"
-                                           Visibility="{Binding ShowCancelIcon,Converter={StaticResource VisibleIfTrueConverter}}"/>
+                                                <Button Grid.Column="3" Margin="0 0 0 0" Visibility="{Binding ShowCancelIcon,Converter={StaticResource VisibleIfTrueConverter}}"
+                                                        Click="Button_Click">
+                                                    <Button.Template>
+                                                        <ControlTemplate>
+                                                            <Grid Margin="-10 0 0 0">
+                                                                <Image Width="28" Height="28" VerticalAlignment="Center"
+                                                                       Source="pack://application:,,,/Payment;component/Image/Rectangle 57.png"/>
+                                                                <Image Width="15" Height="15" VerticalAlignment="Center"
+                                                                       Source="pack://application:,,,/Payment;component/Image/ci_close-small_white.png"/>
+                                                            </Grid>
+                                                        </ControlTemplate>
+                                                    </Button.Template>
+                                                </Button>
+                                                <!--<Image Grid.Column="3" Margin="0 0 -30 0" VerticalAlignment="Center" Width="15" Height="15" Source="pack://application:,,,/Payment;component/Image/image 3.png"
+                                           Visibility="{Binding ShowCancelIcon,Converter={StaticResource VisibleIfTrueConverter}}"/>-->
                                             </Grid>
                                         </Border>
                                     </ControlTemplate>
@@ -96,7 +109,7 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="20"/>
                                         <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="100"/>
                                         <ColumnDefinition Width="20"/>
                                     </Grid.ColumnDefinitions>
                                     <Image VerticalAlignment="Center" Width="20" Height="20" Source="{Binding BitmapImage, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
@@ -108,8 +121,14 @@
                                     </Grid>
                                     <Label Grid.Column="2" Content="{Binding Money}" FontSize="16" FontWeight="Bold"
                                            FontFamily="Lato" Foreground="#02B966" HorizontalAlignment="Center"/>
-                                    <Image Grid.Column="3" Margin="0 0 -40 0" VerticalAlignment="Center" Width="15" Height="15" Source="pack://application:,,,/Payment;component/Image/image 3.png"
-                                           Visibility="{Binding ShowCancelIcon,Converter={StaticResource VisibleIfTrueConverter}}"/>
+                                    <Button Grid.Column="3" Margin="0 0 -40 0" Width="15" Height="15" Visibility="{Binding ShowCancelIcon,Converter={StaticResource VisibleIfTrueConverter}}"
+                                            Click="Button_Click">
+                                        <Button.Template>
+                                            <ControlTemplate>
+                                                <Image Grid.Column="3" VerticalAlignment="Center" Source="pack://application:,,,/Payment;component/Image/image 3.png"/>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
                                 </Grid>
                             </Border>
                         </DataTemplate>

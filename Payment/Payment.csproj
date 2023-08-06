@@ -16,6 +16,7 @@
     <None Remove="Image\bxs_file-export.png" />
     <None Remove="Image\bx_time-five.png" />
     <None Remove="Image\ci_close-small.png" />
+    <None Remove="Image\ci_close-small_white.png" />
     <None Remove="Image\Group 18094.png" />
     <None Remove="Image\Group 18095.png" />
     <None Remove="Image\Group 18096 %281%29.png" />
@@ -34,6 +35,7 @@
     <None Remove="Image\ph_qr-code-fill-color.png" />
     <None Remove="Image\ph_qr-code-fill.png" />
     <None Remove="Image\popup.png" />
+    <None Remove="Image\Rectangle 57.png" />
     <None Remove="Image\Rectangle49.png" />
     <None Remove="Image\RemoveOrder\ci_close-small.png" />
     <None Remove="Image\RemoveOrder\Rectangle 57.png" />
@@ -65,6 +67,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Image\ci_close-small.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\ci_close-small_white.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Image\Group 18094.png">
@@ -119,6 +124,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Image\popup.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\Rectangle 57.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Image\Rectangle49.png">
