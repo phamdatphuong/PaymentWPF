@@ -26,7 +26,7 @@
                     <Image Width="132" Height="132" ToolTip="image123"  Source="pack://application:,,,/Payment;component/Image/Rectangle49.png"/>
                 </Border>
                 <TextBox Width="277" Height="48" Margin="0 20 0 0" VerticalContentAlignment="Center" FontSize="16" FontFamily="Montserrat"
-                     Text="{Binding Address,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="#323232">
+                     Text="{Binding RequestNumber,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="#323232">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
@@ -34,7 +34,7 @@
                     </TextBox.Resources>
                 </TextBox>
                 <TextBox Width="277" Height="48" Margin="0 20 0 0" VerticalContentAlignment="Center" FontSize="16" FontFamily="Montserrat"
-                     Text="{Binding Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="#323232">
+                     Text="{Binding Amount,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="#323232">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
@@ -42,7 +42,7 @@
                     </TextBox.Resources>
                 </TextBox>
                 <Button Content="Gerar" Width="277" Height="48" Background="#FFC501" FontSize="13.74" FontWeight="Bold" Margin="0 20 0 0"
-                         Command="{Binding GeneratePaymentCommand}">
+                         Command="{Binding GeneratePaymentCommand}" CommandParameter="Generate">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="6.87"/>
@@ -59,7 +59,13 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Width="36" Height="36" ToolTip="image123"  Source="pack://application:,,,/Payment;component/Image/bxs_dollar-circle-black.png"/>
+                <Button Grid.Column="0" Command="{Binding GeneratePaymentCommand}" CommandParameter="view">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="36" Height="36" Source="pack://application:,,,/Payment;component/Image/bxs_dollar-circle-black.png"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
                 <Image Grid.Column="1" Width="36" Height="36" ToolTip="image123"  Source="pack://application:,,,/Payment;component/Image/ph_qr-code-fill-color.png"/>
                 <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="20 0 0 0">
                     <Image Margin="20 0 0 0" Width="20" Height="28" ToolTip="image123" Source="pack://application:,,,/Payment;component/Image/btn-next/Vector.png"/>

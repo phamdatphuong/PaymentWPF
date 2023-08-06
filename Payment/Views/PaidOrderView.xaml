@@ -32,14 +32,14 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <Image VerticalAlignment="Center" Width="20" Height="20" Source="{Binding SelectedParameter.BitmapImage, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    <Image VerticalAlignment="Center" Width="20" Height="20" Source="{Binding PaidOrderData.BitmapImage, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                     <Grid Grid.Column="1">
                         <StackPanel Orientation="Vertical">
-                            <Label Content="{Binding Path=SelectedParameter.OrderNumber, StringFormat=Pedido #{0}}" FontSize="16" FontWeight="Bold"/>
-                            <Label Content="{Binding SelectedParameter.OrderTime}" FontSize="14" FontWeight="Regular"/>
+                            <Label Content="{Binding Path=PaidOrderData.OrderNumber, StringFormat=Pedido #{0}}" FontSize="16" FontWeight="Bold"/>
+                            <Label Content="{Binding PaidOrderData.OrderTime}" FontSize="14" FontWeight="Regular"/>
                         </StackPanel>
                     </Grid>
-                    <Label Grid.Column="2" Content="{Binding SelectedParameter.Money, StringFormat=R$: {0}}" FontSize="16" FontWeight="Bold" Foreground="#02B966" HorizontalAlignment="Center"/>
+                    <Label Grid.Column="2" Content="{Binding PaidOrderData.Money, StringFormat=R$: {0}}" FontSize="16" FontWeight="Bold" Foreground="#02B966" HorizontalAlignment="Center"/>
                     <StackPanel Grid.Row="1" Grid.Column="1">
                         <Label Content="Transaction ID" FontSize="12" FontWeight="Bold"/>
                         <Label Content="{Binding TransactionID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="14" FontWeight="Regular"/>
@@ -49,7 +49,8 @@
                     </StackPanel>
                 </Grid>
 
-                <Button Content="Imprimir" Width="277" Height="48" Background="#FFC501" FontSize="13.74" FontWeight="Bold" Margin="0 20 0 0">
+                <Button Content="Imprimir" Width="277" Height="48" Background="#FFC501" FontSize="13.74" FontWeight="Bold" Margin="0 20 0 0"
+                        Click="Button_Click">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="6.87"/>
@@ -67,7 +68,13 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Image Grid.Column="0" Width="36" Height="36" Source="pack://application:,,,/Payment;component/Image/bxs_dollar-circle.png"/>
-                <Image Grid.Column="1" Width="36" Height="36" Source="pack://application:,,,/Payment;component/Image/ph_qr-code-fill.png"/>
+                <Button Grid.Column="1" Command="{Binding ShowGenerateViewCommand}" CommandParameter="PaidView">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="36" Height="36" Source="pack://application:,,,/Payment;component/Image/ph_qr-code-fill.png"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
                 <Image Grid.Column="2" Width="38" Height="36" Source="pack://application:,,,/Payment;component/Image/Group18094-1.png"/>
             </Grid>
         </Border>

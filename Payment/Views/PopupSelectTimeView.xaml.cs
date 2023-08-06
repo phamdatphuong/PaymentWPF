@@ -17,7 +17,7 @@ namespace Payment.Views
     /// <summary>
     /// Interaction logic for PopupSelectTimeView.xaml
     /// </summary>
-    public partial class PopupSelectTimeView : BaseUserControl
+    public partial class PopupSelectTimeView : Window
     {
         public PopupSelectTimeView()
         {
@@ -26,7 +26,13 @@ namespace Payment.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.CloseWindow();
+            this.Close();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

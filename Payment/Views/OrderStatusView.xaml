@@ -10,6 +10,7 @@
         Height="600" Width="350">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="VisibleIfTrueConverter" />
+
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -33,12 +34,61 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Label Content="Data" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
-                    <Label Grid.Column="1" Content="21.03.22 - 28.03.22" FontSize="14" FontWeight="Regular" HorizontalAlignment="Center"/>
+                    <Button Grid.Column="1" Name="btnShowDataRangeView" Click="btnShowDataRangeView_Click">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Label Grid.Column="1" Content="21.03.22 - 28.03.22" FontSize="14" FontWeight="Regular" HorizontalAlignment="Center"/>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                     <Image Grid.Column="2" Height="32" Width="32" Source="pack://application:,,,/Payment;component/Image/bxs_file-export.png"
                            MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
                 </Grid>
                 <ListView x:Name="DataOrderItems" ItemsSource="{Binding OrderList}" Background="#f0f0f0" MaxHeight="380"
-                          SelectedItem="{Binding SelectedParameter}">
+                          SelectedItem="{Binding Path=SelectedParameter,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                    <ListView.Resources>
+                        <ControlTemplate x:Key="SelectedTemplate" TargetType="ListViewItem">
+                            <Button Name="btnQrCodeView" Click="btnQrCodeView_Click">
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <Border HorizontalAlignment="Center" Width="320" Height="60" CornerRadius="6">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="60"/>
+                                                    <ColumnDefinition Width="20"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Image VerticalAlignment="Center" Width="20" Height="20" Source="{Binding BitmapImage, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                                <Grid Grid.Column="1">
+                                                    <StackPanel Orientation="Vertical">
+                                                        <Label Content="{Binding Path=OrderNumber}" FontFamily="Lato" FontSize="16" FontWeight="Bold"/>
+                                                        <Label Content="{Binding OrderTime}" FontSize="14" FontWeight="Regular"/>
+                                                    </StackPanel>
+                                                </Grid>
+                                                <Label Grid.Column="2" Content="{Binding Money}" FontSize="16" 
+                                                       FontFamily="Lato" FontWeight="Bold" Foreground="#02B966" HorizontalAlignment="Center"/>
+                                                <Image Grid.Column="3" Margin="0 0 -30 0" VerticalAlignment="Center" Width="15" Height="15" Source="pack://application:,,,/Payment;component/Image/image 3.png"
+                                           Visibility="{Binding ShowCancelIcon,Converter={StaticResource VisibleIfTrueConverter}}"/>
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </ControlTemplate>
+                        <Style TargetType="ListViewItem">
+                            <Style.Triggers>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsSelected" Value="true" />
+                                        <Condition Property="Selector.IsSelectionActive" Value="true" />
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="Background" Value="Pink" />
+                                    <Setter Property="Template" Value="{StaticResource SelectedTemplate}" />
+                                </MultiTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.Resources>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Border HorizontalAlignment="Center" Width="320" Height="60" CornerRadius="6">
@@ -52,11 +102,12 @@
                                     <Image VerticalAlignment="Center" Width="20" Height="20" Source="{Binding BitmapImage, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                                     <Grid Grid.Column="1">
                                         <StackPanel Orientation="Vertical">
-                                            <Label Content="{Binding Path=OrderNumber, StringFormat=Pedido #{0}}" FontSize="16" FontWeight="Bold"/>
+                                            <Label Content="{Binding Path=OrderNumber}" FontFamily="Lato" FontSize="16" FontWeight="Bold"/>
                                             <Label Content="{Binding OrderTime}" FontSize="14" FontWeight="Regular"/>
                                         </StackPanel>
                                     </Grid>
-                                    <Label Grid.Column="2" Content="{Binding Money, StringFormat=R$: {0}}" FontSize="16" FontWeight="Bold" Foreground="#02B966" HorizontalAlignment="Center"/>
+                                    <Label Grid.Column="2" Content="{Binding Money}" FontSize="16" FontWeight="Bold"
+                                           FontFamily="Lato" Foreground="#02B966" HorizontalAlignment="Center"/>
                                     <Image Grid.Column="3" Margin="0 0 -40 0" VerticalAlignment="Center" Width="15" Height="15" Source="pack://application:,,,/Payment;component/Image/image 3.png"
                                            Visibility="{Binding ShowCancelIcon,Converter={StaticResource VisibleIfTrueConverter}}"/>
                                 </Grid>
@@ -80,7 +131,7 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <Button Grid.Column="1" Command="{Binding ShowQrCodeCommand}">
+                <Button Grid.Column="1" Command="{Binding ShowGenerateViewCommand}">
                     <Button.Template>
                         <ControlTemplate>
                             <Image Width="36" Height="36" Source="pack://application:,,,/Payment;component/Image/ph_qr-code-fill.png"/>

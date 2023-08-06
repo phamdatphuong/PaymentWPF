@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Payment.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,16 @@ namespace Payment.Views
         public PaidOrderView()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ReceiptQrCodeView win = new ReceiptQrCodeView();
+            win.WindowStyle = WindowStyle.None;
+            win.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            win.ResizeMode = ResizeMode.NoResize;
+            win.DataContext = new ReceiptQrCodeViewModel(((PaidOrderViewModel)this.DataContext).PaidOrderData);
+            win.ShowDialog();
         }
     }
 }

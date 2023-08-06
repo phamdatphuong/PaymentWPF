@@ -15,17 +15,17 @@ namespace Payment.ViewModels
     {
         public MainViewModel mainViewModel;
 
-        private OrderDataModel _selectedParameter;
-        public OrderDataModel SelectedParameter
+        private OrderDataModel _paidOrderData;
+        public OrderDataModel PaidOrderData
         {
             get
             {
-                return _selectedParameter;
+                return _paidOrderData;
             }
             set
             {
-                _selectedParameter = value;
-                OnPropertyChanged(nameof(SelectedParameter));
+                _paidOrderData = value;
+                OnPropertyChanged(nameof(PaidOrderData));
             }
         }
 
@@ -57,20 +57,14 @@ namespace Payment.ViewModels
             }
         }
 
-        public PaidOrderViewModel(MainViewModel mainViewModel)
+        public ICommand ShowGenerateViewCommand;
+        public PaidOrderViewModel(MainViewModel mainViewModel, OrderDataModel dataOrder)
         {
             this.mainViewModel = mainViewModel;
-            //DetailOrderCommand = new DetailOrderCommand(this);
-            SelectedParameter = new OrderDataModel
-            {
-                OrderType = Utilities.TypeOrder.Paid,
-                OrderNumber = "123456",
-                OrderTime = "21.03.22 - 13:00",
-                Money = 20,
-                BitmapImage = new BitmapImage(new Uri("pack://application:,,,/Payment;component/Image/bi_check-lg.png"))
-            };
-            TransactionID = "FP62FF82EE72974";
+            PaidOrderData = dataOrder;
+            TransactionID = dataOrder.OrderNumber;
             OrderStatus = TypeOrder.Paid.ToString();
+            ShowGenerateViewCommand = new ShowGenerateViewCommand(this);
         }
     }
 }

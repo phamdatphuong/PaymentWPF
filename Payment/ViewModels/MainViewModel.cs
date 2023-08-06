@@ -1,12 +1,6 @@
-﻿using Payment.Commands;
-using Payment.Models;
-using System;
+﻿using Payment.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 
 namespace Payment.ViewModels
 {
@@ -23,27 +17,7 @@ namespace Payment.ViewModels
             }
         }
 
-        //private BaseViewModel _selectedViewModelLogin;
-        //public BaseViewModel SelectedViewModelLogin
-        //{
-        //    get { return _selectedViewModelLogin; }
-        //    set
-        //    {
-        //        _selectedViewModelLogin = value;
-        //        OnPropertyChanged(nameof(SelectedViewModelLogin));
-        //    }
-        //}
-
-        //private BaseViewModel _selectedViewModelGenerate;
-        //public BaseViewModel SelectedViewModelGenerate
-        //{
-        //    get { return _selectedViewModelGenerate; }
-        //    set
-        //    {
-        //        _selectedViewModelGenerate = value;
-        //        OnPropertyChanged(nameof(SelectedViewModelGenerate));
-        //    }
-        //}
+        public List<OrderDataModel> OrderList;
 
         private Visibility _showLoginView;
         public Visibility ShowLoginView
@@ -79,9 +53,7 @@ namespace Payment.ViewModels
         public MainViewModel()
         {
             this.SelectedViewModel = new LoginViewModel(this);
-            //this.SelectedViewModelGenerate = new GeneratePaymentViewModel(this);
-            //this.ShowLoginView = Visibility.Visible;
-            //this.ShowGenerateView = Visibility.Collapsed;
+            OrderList = new List<OrderDataModel>();
         }
     }
 }

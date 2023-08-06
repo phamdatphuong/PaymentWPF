@@ -5,31 +5,31 @@ namespace Payment.ViewModels
 {
     public class GeneratePaymentViewModel : BaseViewModel
     {
-        private string _address;
-        public string Address
+        private string _requestNumber;
+        public string RequestNumber
         {
             get
             {
-                return _address;
+                return _requestNumber;
             }
             set
             {
-                _address = value;
-                OnPropertyChanged(nameof(Address));
+                _requestNumber = value;
+                OnPropertyChanged(nameof(RequestNumber));
             }
         }
 
-        private string _value;
-        public string Value
+        private string _amount;
+        public string Amount
         {
             get
             {
-                return _value;
+                return _amount;
             }
             set
             {
-                _value = value;
-                OnPropertyChanged(nameof(Value));
+                _amount = value;
+                OnPropertyChanged(nameof(Amount));
             }
         }
 

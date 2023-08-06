@@ -16,18 +16,19 @@
         <Grid Margin="10 10 0 0">
             <StackPanel Orientation="Vertical">
                 <Label Content="QR Code" FontSize="18" FontWeight="Bold" Foreground="#272727"/>
-                <Label Content="Pedido #1234567 Envie os dados de pagamento ao comprador" FontSize="12" FontWeight="Medium" Foreground="#787878"/>
+                <Label Content="{Binding OrderNumber}" FontSize="12" FontWeight="Bold" Foreground="#787878"/>
+                <Label Content="Envie os dados de pagamento ao comprador" FontSize="12" FontWeight="Normal" Foreground="#787878"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
             <StackPanel Orientation="Vertical">
-                <Label Content="R$39,20" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <Label Content="{Binding Paid}" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
                 <Border Width="160" Height="160" Background="#FFFFFF" CornerRadius="7">
-                    <Image Width="130" Height="130" ToolTip="image123"  Source="pack://application:,,,/Payment;component/Image/wpf_qr-code.png"/>
+                    <Image Width="130" Height="130" ToolTip="image123"  Source="{Binding QrCode}"/>
                 </Border>
                 <Label Content="PIX Copia e Cola" FontSize="16" FontWeight="Bold" Foreground="#EBB604"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBox Width="307" Height="39" Margin="10 0 0 0" VerticalContentAlignment="Center" FontSize="16" FontFamily="Montserrat" Text="00020126920014BR.GOV.BCB.PIX01" Foreground="#323232">
+                    <TextBox Width="307" Height="39" Margin="10 0 0 0" VerticalContentAlignment="Center" FontSize="16" FontFamily="Montserrat" Text="{Binding Pix}" Foreground="#323232">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="8"/>
@@ -55,7 +56,13 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Width="36" Height="36" Source="pack://application:,,,/Payment;component/Image/bxs_dollar-circle-black.png"/>
+                <Button Grid.Column="0" Command="{Binding GeneratePaymentCommand}" CommandParameter="QrCode">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="36" Height="36" Source="pack://application:,,,/Payment;component/Image/bxs_dollar-circle-black.png"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
                 <Image Grid.Column="1" Width="36" Height="36" Source="pack://application:,,,/Payment;component/Image/ph_qr-code-fill-color.png"/>
                 <Image Grid.Column="2" Width="38" Height="36" Source="pack://application:,,,/Payment;component/Image/Group18094-1.png"/>
             </Grid>

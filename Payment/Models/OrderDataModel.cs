@@ -14,8 +14,12 @@ namespace Payment.Models
         public TypeOrder OrderType { get; set; }
         public string OrderNumber { get; set; }
         public string OrderTime { get; set; }  
-        public double Money { get; set; }
+        public string Money { get; set; }
         public BitmapImage BitmapImage { get; set; }
         public bool ShowCancelIcon { get; set; }
+
+        public BitmapImage Qr_code { get; set; }
+        public string Paid { get; set; }
+        public string Pix_id { get; set; }
     }
 }

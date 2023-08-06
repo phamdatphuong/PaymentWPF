@@ -26,7 +26,7 @@ namespace Payment.Commands
 
         public void Execute(object? parameter)
         {
-            _viewModel.mainViewModel.SelectedViewModel = new PaidOrderViewModel(_viewModel.mainViewModel);
+            _viewModel.mainViewModel.SelectedViewModel = new PaidOrderViewModel(_viewModel.mainViewModel, _viewModel.DataOrder);
         }
     }
 }

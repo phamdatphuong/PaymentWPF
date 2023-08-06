@@ -1,27 +1,37 @@
-﻿<UserControl x:Class="Payment.Views.ReceiptQrCodeView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:Payment.Views"
-             mc:Ignorable="d"
-             Background="#f0f0f0"
-             Height="266.54" Width="218">
-    <StackPanel>
-        <Image Width="32" Height="26" Margin="0 10 0 0" Source="pack://application:,,,/Payment;component/Image/Group18091.png"/>
-        <Image Width="61.39" Height="8.65" Source="pack://application:,,,/Payment;component/Image/Vector.png"/>
-        <Label Content="Pix QR Code" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Center" FontFamily="Inter"/>
-        <Label Content="************************************************" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Center" FontFamily="Inter"/>
-        <Label Content="Valor : R$10,00" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Center" FontFamily="Inter"/>
-        <Label Content="Número do Pediro :  #123456" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Center" FontFamily="Inter"/>
-        <Image Width="64" Height="64" Source="pack://application:,,,/Payment;component/Image/wpf_qr-code 1.png"/>
-        <Label Width="181" Height="40" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Center" FontFamily="Inter">
-            <AccessText TextWrapping="WrapWithOverflow">
-                Escanei o QR CODE na opção
+﻿<Window x:Class="Payment.Views.ReceiptQrCodeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Payment.Views"
+        mc:Ignorable="d"
+        Background="#f0f0f0"
+        Height="266.65" Width="218" WindowStyle="None"
+        MouseDown = "Window_MouseDown">
+    <Grid>
+        <Button Width="20" Height="20" Content="X" Margin="198,0,0,247" BorderThickness="0" Background="Transparent" Click="Button_Click"/>
+        <StackPanel>
+            <Image Width="32" Height="26" Margin="0 10 0 0" Source="pack://application:,,,/Payment;component/Image/Group18091.png"/>
+            <Image Width="61.39" Height="8.65" Source="pack://application:,,,/Payment;component/Image/Vector.png"/>
+            <Label Content="Pix QR Code" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Center" FontFamily="Inter"/>
+            <Label Content="************************************************" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Center" FontFamily="Inter"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Valor : " FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Center" FontFamily="Inter"/>
+                <Label Content="{Binding Amount}" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Center" FontFamily="Inter"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Número do Pediro :  " FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Center" FontFamily="Inter"/>
+                <Label Content="{Binding OrderNumber}" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Center" FontFamily="Inter"/>
+            </StackPanel>
+            <Image Width="64" Height="64" Source="{Binding QrCode}"/>
+            <Label Width="181" Height="40" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Center" FontFamily="Inter">
+                <AccessText TextWrapping="WrapWithOverflow">
+                    Escanei o QR CODE na opção
 PIX QR CODE no aplicativo
 de seu banco
-            </AccessText>
-        </Label>
-        <Label Content="12/01/2022 - 12:23" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Center" FontFamily="Inter"/>
-    </StackPanel>
-</UserControl>
+                </AccessText>
+            </Label>
+            <Label Content="{Binding Time}" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Center" FontFamily="Inter"/>
+        </StackPanel>
+    </Grid>
+</Window>
