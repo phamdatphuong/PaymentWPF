@@ -35,18 +35,6 @@ namespace Payment.Views
             //win.Show();
         }
 
-        private void btnQrCodeView_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.DataContext != null)
-            {
-                OrderStatusViewModel vm = (OrderStatusViewModel)this.DataContext;
-                if (vm.SelectedParameter != null && vm.SelectedParameter.OrderType == Utilities.TypeOrder.Waiting)
-                {
-                    vm.mainViewModel.SelectedViewModel = new QrCodeViewModel(vm.mainViewModel, vm.SelectedParameter);
-                }
-            }
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (this.DataContext != null)
@@ -87,6 +75,18 @@ namespace Payment.Views
                     {
                         MessageBox.Show("Cancel fail Fail");
                     }
+                }
+            }
+        }
+
+        private void btnQrCodeView_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (this.DataContext != null)
+            {
+                OrderStatusViewModel vm = (OrderStatusViewModel)this.DataContext;
+                if (vm.SelectedParameter != null && vm.SelectedParameter.OrderType == Utilities.TypeOrder.Waiting)
+                {
+                    vm.mainViewModel.SelectedViewModel = new QrCodeViewModel(vm.mainViewModel, vm.SelectedParameter);
                 }
             }
         }

@@ -19,35 +19,6 @@ namespace Payment.ViewModels
 
         public List<OrderDataModel> OrderList;
 
-        private Visibility _showLoginView;
-        public Visibility ShowLoginView
-        {
-            get
-            {
-                return _showLoginView;
-            }
-            set
-            {
-                _showLoginView = value;
-
-                OnPropertyChanged(nameof(ShowLoginView));
-            }
-        }
-        private Visibility _showGenerateView;
-        public Visibility ShowGenerateView
-        {
-            get
-            {
-                return _showGenerateView;
-            }
-            set
-            {
-                _showGenerateView = value;
-
-                OnPropertyChanged(nameof(ShowGenerateView));
-            }
-        }
-
         public ResponseLoginModel ResponseLoginModel = new ResponseLoginModel();
 
         public MainViewModel()

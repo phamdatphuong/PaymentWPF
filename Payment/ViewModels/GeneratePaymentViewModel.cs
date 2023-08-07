@@ -35,11 +35,13 @@ namespace Payment.ViewModels
 
         public MainViewModel mainViewModel;
         public ICommand GeneratePaymentCommand { get; set; }
+        public ICommand ShowLoginViewCommand { get; set; }
 
         public GeneratePaymentViewModel(MainViewModel mainViewModel)
         {
             this.mainViewModel = mainViewModel;
             GeneratePaymentCommand = new GeneratePaymentCommand(this);
+            ShowLoginViewCommand = new ShowLoginViewCommand(this.mainViewModel);
         }
     }
 }

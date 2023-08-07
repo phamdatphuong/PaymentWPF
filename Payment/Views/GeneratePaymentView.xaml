@@ -67,10 +67,16 @@
                     </Button.Template>
                 </Button>
                 <Image Grid.Column="1" Width="36" Height="36" ToolTip="image123"  Source="pack://application:,,,/Payment;component/Image/ph_qr-code-fill-color.png"/>
-                <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="20 0 0 0">
-                    <Image Margin="20 0 0 0" Width="20" Height="28" ToolTip="image123" Source="pack://application:,,,/Payment;component/Image/btn-next/Vector.png"/>
-                    <Image Margin="0 10 0 0" Width="9" Height="12" ToolTip="image123" Source="pack://application:,,,/Payment;component/Image/btn-next/Vector-1.png"/>
-                </StackPanel>
+                <Button Grid.Column="2" Command="{Binding ShowLoginViewCommand}" Margin="20 0 0 0">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Margin="20 0 0 0" Width="20" Height="28" ToolTip="image123" Source="pack://application:,,,/Payment;component/Image/btn-next/Vector.png"/>
+                                <Image Margin="0 10 0 0" Width="9" Height="12" ToolTip="image123" Source="pack://application:,,,/Payment;component/Image/btn-next/Vector-1.png"/>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Grid>
         </Border>
     </Grid>

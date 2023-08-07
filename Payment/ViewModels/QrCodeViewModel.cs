@@ -20,6 +20,7 @@ namespace Payment.ViewModels
             this.DataOrder = selectedParameter;
             DetailOrderCommand = new DetailOrderCommand(this);
             GeneratePaymentCommand = new GeneratePaymentCommand(this);
+            ShowLoginViewCommand = new ShowLoginViewCommand(this.mainViewModel);
 
             QrCode = selectedParameter.Qr_code;
             Pix = selectedParameter.Pix_id;
@@ -28,5 +29,7 @@ namespace Payment.ViewModels
         }
         public ICommand DetailOrderCommand { get; set; }
         public ICommand GeneratePaymentCommand { get; set; }
+                
+        public ICommand ShowLoginViewCommand { get; set; }
     }
 }

@@ -64,7 +64,13 @@
                     </Button.Template>
                 </Button>
                 <Image Grid.Column="1" Width="36" Height="36" Source="pack://application:,,,/Payment;component/Image/ph_qr-code-fill-color.png"/>
-                <Image Grid.Column="2" Width="38" Height="36" Source="pack://application:,,,/Payment;component/Image/Group18094-1.png"/>
+                <Button Grid.Column="2" Command="{Binding ShowLoginViewCommand}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="38" Height="36" Source="pack://application:,,,/Payment;component/Image/Group18094-1.png"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Grid>
         </Border>
     </Grid>

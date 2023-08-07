@@ -17,6 +17,8 @@ namespace Payment.ViewModels
         public LoginViewModel(MainViewModel mainViewModel)
         {
             this.mainViewModel = mainViewModel;
+            this.mainViewModel.OrderList = new List<Models.OrderDataModel>();
+
             LoginCommand = new LoginCommand(this);
         }
 

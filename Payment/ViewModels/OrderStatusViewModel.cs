@@ -49,10 +49,12 @@ namespace Payment.ViewModels
             }
         }
         public ICommand ShowGenerateViewCommand { get; set; }
+        public ICommand ShowLoginViewCommand { get; set; }
         public OrderStatusViewModel(MainViewModel mainViewModel, string requestNumber, string amount)
         {
             this.mainViewModel = mainViewModel;
             ShowGenerateViewCommand = new ShowGenerateViewCommand(this);
+            ShowLoginViewCommand = new ShowLoginViewCommand(this.mainViewModel);
 
             //code get data API - UnComment when API work
             //if (!string.IsNullOrEmpty(requestNumber))

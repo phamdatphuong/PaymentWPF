@@ -32,7 +32,7 @@ namespace Payment.Commands
 
         public void Execute(object? parameter)
         {
-            if(parameter.ToString() == "PaidView")
+            if(parameter?.ToString() == "PaidView")
             {
                 paidOrderViewModel.mainViewModel.SelectedViewModel = new GeneratePaymentViewModel(paidOrderViewModel.mainViewModel);
             }

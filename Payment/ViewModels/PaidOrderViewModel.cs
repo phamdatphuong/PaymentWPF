@@ -57,7 +57,8 @@ namespace Payment.ViewModels
             }
         }
 
-        public ICommand ShowGenerateViewCommand;
+        public ICommand ShowGenerateViewCommand { get; set; }
+        public ICommand ShowLoginViewCommand { get; set; }
         public PaidOrderViewModel(MainViewModel mainViewModel, OrderDataModel dataOrder)
         {
             this.mainViewModel = mainViewModel;
@@ -65,6 +66,7 @@ namespace Payment.ViewModels
             TransactionID = dataOrder.OrderNumber;
             OrderStatus = TypeOrder.Paid.ToString();
             ShowGenerateViewCommand = new ShowGenerateViewCommand(this);
+            ShowLoginViewCommand = new ShowLoginViewCommand(this.mainViewModel);
         }
     }
 }
